@@ -1,0 +1,14 @@
+{
+  "name": "piecelength",
+  "version": "0.1.0",
+  "displayName": "piecelength",
+  "description": "'.torrent' metafile ideal piecelength calculator.",
+  "scripts": {
+    "test": "python ./tests.py"
+  },
+  "email": "alexpdev@protonmail.com",
+  "readme": "./README.md",
+  "keywords": ["bittorrent","metafiles"],
+  "author": "alexpdev",
+  "license": "BSD"
+}
