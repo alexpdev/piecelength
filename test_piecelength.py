@@ -29,9 +29,14 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ###############################################################################
 
+import os
+import sys
+sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import math
 import pytest
-from piecelength import get_piece_length
+import piecelength
+
+get_piece_length = piecelength.get_piece_length
 
 
 class PieceLengthTest:
