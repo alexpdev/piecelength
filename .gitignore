@@ -16,6 +16,8 @@ eggs/
 .eggs/
 lib/
 lib64/
+.editorconfig
+.vscode/
 parts/
 sdist/
 var/

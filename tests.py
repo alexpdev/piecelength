@@ -31,79 +31,143 @@
 
 import math
 from unittest import TestCase
-from piecelength import ideal_length
+from piecelength import get_piece_length
 
 
 class PieceLengthTest(TestCase):
 
-    def test_4mb(self):
-        bites = 4 * (2**20)
-        result = ideal_length(bites)
-        expected = 2**14
-        pieces = math.ceil(bites/expected)
-        print("size:", bites, "result:", result,
-            "expected:", expected, "pieces:", pieces)
-        self.assertEqual(result,expected)
+    Kb = 2**10
+    Mb = Kb**2
+    Gb = Kb**3
 
-    def test_50mb(self):
-        bites = 50 * (2**20)
-        result = ideal_length(bites)
-        expected = 2**16
-        pieces = math.ceil(bites/expected)
-        print("size:", bites, "result:", result,
-            "expected:", expected, "pieces:", pieces)
-        self.assertEqual(result,expected)
+    def test_1_4mb(self):
+        total = self.Mb * 4
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
 
-    def test_130mb(self):
-        bites = 130 * (2**20)
-        result = ideal_length(bites)
-        expected = 2**17
-        pieces = math.ceil(bites/expected)
-        print("size:", bites, "result:", result,
-            "expected:", expected, "pieces:", pieces)
-        self.assertEqual(result,expected)
+    def test_2_50mb(self):
+        total = self.Mb * 50
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
 
-    def test_350mb(self):
-        bites = 350 * (2**20)
-        result = ideal_length(bites)
-        expected = 2**18
-        pieces = math.ceil(bites/expected)
-        print("size:", bites, "result:", result,
-            "expected:", expected, "pieces:", pieces)
-        self.assertEqual(result,expected)
+    def test_3_130mb(self):
+        total = self.Mb * 130
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
 
-    def test_700mb(self):
-        bites = 700 * (2**20)
-        result = ideal_length(bites)
-        expected = 2**19
-        pieces = math.ceil(bites/expected)
-        print("size:", bites, "result:", result,
-            "expected:", expected, "pieces:", pieces)
-        self.assertEqual(result,expected)
+    def test_4_150mb(self):
+        total = self.Mb * 150
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
 
-    def test_1_4gb(self):
-        bites = 1.4 * (2**30)
-        result = ideal_length(bites)
-        expected = 2**20
-        pieces = math.ceil(bites/expected)
-        print("size:", bites, "result:", result,
-            "expected:", expected, "pieces:", pieces)
-        self.assertEqual(result,expected)
+    def test_5_256mb(self):
+        total = self.Mb * 256
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
 
-    def test_2_5gb(self):
-        bites = 2.5 * (2**30)
-        result = ideal_length(bites)
-        expected = 2**21
-        pieces = math.ceil(bites/expected)
-        print("size:", bites, "result:", result,
-            "expected:", expected, "pieces:", pieces)
-        self.assertEqual(result,expected)
+    def test_6_350mb(self):
+        total = self.Mb * 350
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
 
-    def test_4_5gb(self):
-        bites = 4.5 * (2**30)
-        result = ideal_length(bites)
-        expected = 2**22
-        pieces = math.ceil(bites/expected)
-        print("size:", bites, "result:", result,
-            "expected:", expected, "pieces:", pieces)
-        self.assertEqual(result,expected)
+    def test_7_485mb(self):
+        total = self.Mb * 485
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
+
+    def test_8_512mb(self):
+        total = self.Mb * 512
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
+
+    def test_9_720mb(self):
+        total = self.Mb * 720
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
+
+    def test_10_1gb(self):
+        total = self.Gb
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
+
+    def test_11_1_4gb(self):
+        total = self.Gb * 1.4
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)
+
+    def test_12_2_5gb(self):
+        total = self.Gb * 2.5
+        result = get_piece_length(total)
+        pieces = total / result
+        self.assertGreaterEqual(result,16*self.Kb)
+        self.assertLessEqual(result, 8*self.Mb)
+        self.assertEqual(math.log2(result),int(math.log2(result)))
+        self.assertEqual(result % (16*self.Kb), 0)
+        if 16 * self.Kb != result != 8 * self.Mb:
+            self.assertGreaterEqual(pieces,1000)

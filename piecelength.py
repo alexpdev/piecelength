@@ -31,18 +31,37 @@
 
 import math
 
-Kb = 1024
-Kb16 = 16384
+Kb = 2**10
+Mb = Kb**2
+Gb = Kb**3
 
-__all__ = ["ideal_length"]
+__all__ = ["get_piece_length"]
 
-def ideal_length(size):
+def get_piece_length(size):
     """
-    Calculate the optimum piece size for torrent data transmission.
+    Calculate the ideal piece length for bittorrent data.
 
     Args:
-        size (int): Total sum of all files included in .torrent file.
+        size (int): total bits of all files incluided in .torrent file
+
     Returns:
-        int: Piece size for transmission of torrent data.
+        int: the ideal peace length calculated from the size arguement
     """
-    return max(Kb16, 1 << int(math.log2(size / Kb) + 0.5) | 0)
+    length = size / 1500  # 1500 = ideal number of pieces
+
+    # Check if length is under minimum 16Kb
+    if length < 16*Kb:
+        return 16*Kb
+
+    # Calculate closest perfect power of 2 to target length
+    exp = int(math.ceil(math.log2(length)))
+
+    # Check if length is over maximum 8Mb
+    if 1 << exp > 8 * Mb:
+        return 8 * Mb
+
+    # Ensure total pieces is over 1000
+    if size / (2 ** exp) < 1000:
+        return 2 ** (exp-1)
+    else:
+        return 2 ** exp
