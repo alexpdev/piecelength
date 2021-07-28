@@ -30,6 +30,7 @@
 ###############################################################################
 
 import math
+import pytest
 from piecelength import get_piece_length
 
 
