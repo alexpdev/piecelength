@@ -61,6 +61,7 @@ setup(
     license=INFO["license"],
     include_package_data=True,
     setup_requires=["setuptools"],
+    packages=find_packages(),
     zip_safe=False,
     test_suite="complete",
 )
