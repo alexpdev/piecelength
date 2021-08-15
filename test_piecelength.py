@@ -29,150 +29,144 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ###############################################################################
 
-import os
-import sys
-sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import math
-import pytest
 import piecelength
 
 get_piece_length = piecelength.get_piece_length
 
+Kb = 2**10
+Mb = Kb**2
+Gb = Kb**3
 
-class PieceLengthTest:
 
-    Kb = 2**10
-    Mb = Kb**2
-    Gb = Kb**3
+def test_1_4mb():
+    total = Mb * 4
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_1_4mb(self):
-        total = self.Mb * 4
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_2_50mb():
+    total = Mb * 50
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_2_50mb(self):
-        total = self.Mb * 50
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_3_130mb():
+    total = Mb * 130
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_3_130mb(self):
-        total = self.Mb * 130
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_4_150mb():
+    total = Mb * 150
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_4_150mb(self):
-        total = self.Mb * 150
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_5_256mb():
+    total = Mb * 256
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_5_256mb(self):
-        total = self.Mb * 256
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_6_350mb():
+    total = Mb * 350
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_6_350mb(self):
-        total = self.Mb * 350
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_7_485mb():
+    total = Mb * 485
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_7_485mb(self):
-        total = self.Mb * 485
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_8_512mb():
+    total = Mb * 512
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_8_512mb(self):
-        total = self.Mb * 512
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_9_720mb():
+    total = Mb * 720
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_9_720mb(self):
-        total = self.Mb * 720
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_10_1gb():
+    total = Gb
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_10_1gb(self):
-        total = self.Gb
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_11_1_4gb():
+    total = Gb * 1.4
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
 
-    def test_11_1_4gb(self):
-        total = self.Gb * 1.4
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
-
-    def test_12_2_5gb(self):
-        total = self.Gb * 2.5
-        result = get_piece_length(total)
-        pieces = total / result
-        assert result >= 16*self.Kb
-        assert result <= 8*self.Mb
-        assert math.log2(result) == int(math.log2(result))
-        assert result % (16*self.Kb) == 0
-        if 16 * self.Kb != result != 8 * self.Mb:
-            assert pieces >= 1000
+def test_12_2_5gb():
+    total = Gb * 2.5
+    result = get_piece_length(total)
+    pieces = total / result
+    assert result >= 16*Kb
+    assert result <= 8*Mb
+    assert math.log2(result) == int(math.log2(result))
+    assert result % (16*Kb) == 0
+    if 16 * Kb != result != 8 * Mb:
+        assert pieces >= 1000
