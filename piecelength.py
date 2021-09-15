@@ -31,37 +31,33 @@
 
 import math
 
-Kb = 2**10
-Mb = Kb**2
-Gb = Kb**3
-
 __all__ = ["get_piece_length"]
+
+KiB = 2**10
+MiB = 2**20
 
 def get_piece_length(size):
     """
     Calculate the ideal piece length for bittorrent data.
 
-    Args:
-        size (int): total bits of all files incluided in .torrent file
+    Piece Length is required to be a power of 2, and must be larger than 16KiB.
+    Not all clients support the same max length so to be safe it is set at 8MiB.
 
-    Returns:
-        int: the ideal peace length calculated from the size arguement
+    Args
+    -----------
+    size: int
+        - total bits of all files incluided in .torrent file
+
+    Returns
+    -----------
+    int:
+        - the ideal piece length calculated from the size arguement
     """
-    length = size / 1500  # 1500 = ideal number of pieces
-
-    # Check if length is under minimum 16Kb
-    if length < 16*Kb:
-        return 16*Kb
-
-    # Calculate closest perfect power of 2 to target length
-    exp = int(math.ceil(math.log2(length)))
-
-    # Check if length is over maximum 8Mb
-    if 1 << exp > 8 * Mb:
-        return 8 * Mb
-
-    # Ensure total pieces is over 1000
-    if size / (2 ** exp) < 1000:
-        return 2 ** (exp-1)
-    else:
-        return 2 ** exp
+    # Smallest supported piece length is 16KiB
+    exp = 14
+    # Find the largest piece size possible less than size / 10
+    # 8MiB largest possible piece size
+    while (2**exp)*10 < size and exp <= 23:
+        exp += 1
+    # piece length must be a power of 2
+    return 2**exp
