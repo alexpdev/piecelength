@@ -29,14 +29,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ###############################################################################
 
-import math
-
-__all__ = ["get_piece_length"]
-
-KiB = 2**10
-MiB = 2**20
-
-def get_piece_length(size):
+def piece_length(size):
     """
     Calculate the ideal piece length for bittorrent data.
 
@@ -57,7 +50,7 @@ def get_piece_length(size):
     exp = 14
     # Find the largest piece size possible less than size / 10
     # 8MiB largest possible piece size
-    while (2**exp)*10 < size and exp <= 23:
+    while (2**exp)*10 < size and exp < 23:
         exp += 1
     # piece length must be a power of 2
     return 2**exp

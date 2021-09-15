@@ -1,3 +1,3 @@
 # Python Piece Length
 
-Calculate ideal piece size for .torrent files.
+Calculate ideal piece length for .torrent files.

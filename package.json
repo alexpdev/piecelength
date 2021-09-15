@@ -1,10 +1,10 @@
 {
   "name": "piecelength",
-  "version": "0.1.0",
+  "version": "1.1",
   "displayName": "piecelength",
-  "description": "'.torrent' metafile ideal piecelength calculator.",
+  "description": "'.torrent' metafile ideal piecelength for small file size calculator.",
   "scripts": {
-    "test": "python ./tests.py"
+    "test": "python ./tests/test_piecelength.py"
   },
   "email": "alexpdev@protonmail.com",
   "readme": "./README.md",

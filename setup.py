@@ -60,6 +60,7 @@ setup(
     author_email=INFO["email"],
     license=INFO["license"],
     include_package_data=True,
+    entry_points={"piecelength":"name=piecelength:main"},
     setup_requires=["setuptools"],
     packages=find_packages(),
     zip_safe=False,
