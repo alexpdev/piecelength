@@ -28,8 +28,7 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ###############################################################################
-
-
+"""Package information for piecelength prject."""
 
 from setuptools import setup, find_packages
 import json
@@ -52,6 +51,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "License :: OSI Approved :: BSD License",
     ],
@@ -60,9 +60,8 @@ setup(
     author_email=INFO["email"],
     license=INFO["license"],
     include_package_data=True,
-    entry_points={"piecelength":"name=piecelength:main"},
+    entry_points={"console_scripts": "piecelength=piecelength.__main__:main"},
     setup_requires=["setuptools"],
     packages=find_packages(),
-    zip_safe=False,
-    test_suite="complete",
+    zip_safe=False
 )

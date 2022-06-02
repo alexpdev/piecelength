@@ -4,7 +4,7 @@
 ###############################################################################
 # BSD 2-Clause License
 #
-# Copyright (c) 2021, AlexpDev
+# Copyright (c) 2021, alexpdev
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -28,8 +28,10 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ###############################################################################
+"""Module containing the logic for the piecelength package."""
 
-def piece_length(size):
+
+def piece_length(size: int) -> int:
     """
     Calculate the ideal piece length for bittorrent data.
 
@@ -37,20 +39,20 @@ def piece_length(size):
     Not all clients support the same max length so to be safe it is set at 8MiB.
 
     Args
-    -----------
+    ----
     size: int
         - total bits of all files incluided in .torrent file
 
     Returns
-    -----------
+    -------
     int:
         - the ideal piece length calculated from the size arguement
     """
     # Smallest supported piece length is 16KiB
     exp = 14
     # Find the largest piece size possible less than size / 10
-    # 8MiB largest possible piece size
-    while (2**exp)*10 < size and exp < 23:
+    # 16MiB largest possible piece size
+    while (2**exp)*10 < size and exp < 24:
         exp += 1
     # piece length must be a power of 2
     return 2**exp
