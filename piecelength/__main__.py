@@ -33,6 +33,7 @@
 import sys
 from piecelength import piece_length
 
+
 def main():
     """Use as entrypoint for CLI."""
     try:

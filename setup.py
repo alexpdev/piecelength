@@ -60,7 +60,7 @@ setup(
     author_email=INFO["email"],
     license=INFO["license"],
     include_package_data=True,
-    entry_points={"console_scripts":"piecelength=piecelength.__main__:main"},
+    entry_points={"console_scripts": "piecelength=piecelength.__main__:main"},
     setup_requires=["setuptools"],
     packages=find_packages(),
     zip_safe=False

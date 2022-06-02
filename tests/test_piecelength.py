@@ -40,11 +40,13 @@ GiB = KiB**3
 MAX = 16 * MiB
 MIN = 16 * KiB
 
+
 def test_1_4miB_minimum():
     """Test piece_length function with specific parameters."""
     total = MiB * 4
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_1_4miB_maximum():
     """Test piece_length function with specific parameters."""
@@ -52,11 +54,13 @@ def test_1_4miB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_1_4miB_pow_2():
     """Test piece_length function with specific parameters."""
     total = MiB * 4
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_1_4miB():
     """Test piece_length function with specific parameters."""
@@ -64,11 +68,13 @@ def test_1_4miB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_2_50miB_minimum():
     """Test piece_length function with specific parameters."""
     total = MiB * 50
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_2_50miB_maximum():
     """Test piece_length function with specific parameters."""
@@ -76,11 +82,13 @@ def test_2_50miB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_2_50miB_pow_2():
     """Test piece_length function with specific parameters."""
     total = MiB * 50
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_2_50miB():
     """Test piece_length function with specific parameters."""
@@ -88,11 +96,13 @@ def test_2_50miB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_3_130miB_minimum():
     """Test piece_length function with specific parameters."""
     total = MiB * 130
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_3_130miB_maximum():
     """Test piece_length function with specific parameters."""
@@ -100,11 +110,13 @@ def test_3_130miB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_3_130miB_pow_2():
     """Test piece_length function with specific parameters."""
     total = MiB * 130
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_3_130miB():
     """Test piece_length function with specific parameters."""
@@ -112,11 +124,13 @@ def test_3_130miB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_4_150miB_minimum():
     """Test piece_length function with specific parameters."""
     total = MiB * 150
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_4_150miB_maximum():
     """Test piece_length function with specific parameters."""
@@ -124,11 +138,13 @@ def test_4_150miB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_4_150miB_pow_2():
     """Test piece_length function with specific parameters."""
     total = MiB * 150
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_4_150miB():
     """Test piece_length function with specific parameters."""
@@ -136,11 +152,13 @@ def test_4_150miB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_5_256miB_minimum():
     """Test piece_length function with specific parameters."""
     total = MiB * 256
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_5_256miB_maximum():
     """Test piece_length function with specific parameters."""
@@ -148,11 +166,13 @@ def test_5_256miB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_5_256miB_pow_2():
     """Test piece_length function with specific parameters."""
     total = MiB * 256
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_5_256miB():
     """Test piece_length function with specific parameters."""
@@ -160,11 +180,13 @@ def test_5_256miB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_6_350miB_minimum():
     """Test piece_length function with specific parameters."""
     total = MiB * 350
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_6_350miB_maximum():
     """Test piece_length function with specific parameters."""
@@ -172,11 +194,13 @@ def test_6_350miB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_6_350miB_pow_2():
     """Test piece_length function with specific parameters."""
     total = MiB * 350
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_6_350miB():
     """Test piece_length function with specific parameters."""
@@ -184,11 +208,13 @@ def test_6_350miB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_7_485miB_minimum():
     """Test piece_length function with specific parameters."""
     total = MiB * 485
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_7_485miB_maximum():
     """Test piece_length function with specific parameters."""
@@ -196,11 +222,13 @@ def test_7_485miB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_7_485miB_pow_2():
     """Test piece_length function with specific parameters."""
     total = MiB * 485
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_7_485miB():
     """Test piece_length function with specific parameters."""
@@ -208,11 +236,13 @@ def test_7_485miB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_8_512miB_minimum():
     """Test piece_length function with specific parameters."""
     total = MiB * 512
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_8_512miB_maximum():
     """Test piece_length function with specific parameters."""
@@ -220,11 +250,13 @@ def test_8_512miB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_8_512miB_pow_2():
     """Test piece_length function with specific parameters."""
     total = MiB * 512
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_8_512miB():
     """Test piece_length function with specific parameters."""
@@ -232,11 +264,13 @@ def test_8_512miB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_9_720miB_minimum():
     """Test piece_length function with specific parameters."""
     total = MiB * 720
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_9_720miB_maximum():
     """Test piece_length function with specific parameters."""
@@ -244,11 +278,13 @@ def test_9_720miB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_9_720miB_pow_2():
     """Test piece_length function with specific parameters."""
     total = MiB * 720
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_9_720miB():
     """Test piece_length function with specific parameters."""
@@ -256,11 +292,13 @@ def test_9_720miB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_10_1giB_minimum():
     """Test piece_length function with specific parameters."""
     total = GiB
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_10_1giB_maximum():
     """Test piece_length function with specific parameters."""
@@ -268,11 +306,13 @@ def test_10_1giB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_10_1giB_pow_2():
     """Test piece_length function with specific parameters."""
     total = GiB
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_10_1giB():
     """Test piece_length function with specific parameters."""
@@ -280,11 +320,13 @@ def test_10_1giB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_11_1_4giB_minimum():
     """Test piece_length function with specific parameters."""
     total = GiB * 1.4
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_11_1_4giB_maximum():
     """Test piece_length function with specific parameters."""
@@ -292,11 +334,13 @@ def test_11_1_4giB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_11_1_4giB_pow_2():
     """Test piece_length function with specific parameters."""
     total = GiB * 1.4
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_11_1_4giB():
     """Test piece_length function with specific parameters."""
@@ -304,11 +348,13 @@ def test_11_1_4giB():
     result = piece_length(total)
     assert result % (MIN) == 0
 
+
 def test_12_2_5giB_minimum():
     """Test piece_length function with specific parameters."""
     total = GiB * 2.5
     result = piece_length(total)
     assert result >= MIN
+
 
 def test_12_2_5giB_maximum():
     """Test piece_length function with specific parameters."""
@@ -316,11 +362,13 @@ def test_12_2_5giB_maximum():
     result = piece_length(total)
     assert result <= MAX
 
+
 def test_12_2_5giB_pow_2():
     """Test piece_length function with specific parameters."""
     total = GiB * 2.5
     result = piece_length(total)
     assert math.log2(result) == int(math.log2(result))
+
 
 def test_12_2_5giB():
     """Test piece_length function with specific parameters."""
