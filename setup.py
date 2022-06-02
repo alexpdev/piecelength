@@ -44,6 +44,7 @@ setup(
     version=INFO['version'],
     description=INFO['description'],
     long_description=long_description,
+    long_description_content_type="text/markdown",
     classifiers=[
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.5",
