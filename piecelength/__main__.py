@@ -44,5 +44,6 @@ def main():
     except IndexError:
         print("Missing size argument.")
 
+
 if __name__ == '__main__':
     main()
